@@ -6,12 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+/**
+ * texto a apresentar na TextView
+ */
 private const val ARG_TEXTO_TEXT_VIEW = ""
+
+/**
+ * texto a apresentar no Botão
+ */
 private const val ARG_TEXT_BOTAO = "param2"
+
+/**
+ * número do fragmento
+ */
+private const val ARG_FRAG_ID = "0"
 
 /**
  * A simple [Fragment] subclass.
@@ -30,6 +44,11 @@ class MeuFragmento : Fragment() {
      */
     private var txtBotao: String? = null
 
+    /**
+     * número do Fragmento para formatar o trabalho do botão do fragmento
+     */
+    private var numeroFragmento: Byte = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // estamos a recuperar para dentro do método 'onCreate' da subclasse,
@@ -39,6 +58,7 @@ class MeuFragmento : Fragment() {
         arguments?.let {
             txtTextView = it.getString(ARG_TEXTO_TEXT_VIEW)
             txtBotao = it.getString(ARG_TEXT_BOTAO)
+            numeroFragmento = it.getByte(ARG_FRAG_ID)
         }
     }
 
@@ -56,11 +76,21 @@ class MeuFragmento : Fragment() {
         val aux_Button = view.findViewById<Button>(R.id.btFragmento)
         aux_Button.text = txtBotao
 
+        // adicionar 'alguma' ação ao botão
+        // esta acção será mostrar um 'popup' com um texto
+        aux_Button.setOnClickListener {
+            // se o número associado ao Fragmento for par, mostrar um objeto de popup diferente
+            if (numeroFragmento % 2 == 0) {
+                // fragmento é par
+                // vamos usar o SnackBar para mostrar a mensagem
+                Snackbar.make(view, "foi pressionado o $txtBotao", Snackbar.LENGTH_LONG).show()
+            } else {
+                // é ímpar
+                Toast.makeText(this.context, "foi pressionado o $txtBotao", Toast.LENGTH_LONG).show()
+            }
+        }
         return view
     }
-
-
-
 
 
     // https://kotlinlang.org/docs/object-declarations.html
@@ -72,15 +102,17 @@ class MeuFragmento : Fragment() {
          *
          * @param txtLabel texto a apresentar na TextView do fragmento
          * @param txtBotao texto a apresentar no Botão do fragmento
+         * @param numFrag número associado ao fragmento
          * @return uma nova realização do fragmento MeuFragmento.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(txtLabel: String, txtBotao: String) =
+        fun newInstance(txtLabel: String, txtBotao: String, numFrag: Byte) =
             MeuFragmento().apply {
                 arguments = Bundle().apply {
                     putString(ARG_TEXTO_TEXT_VIEW, txtLabel)
                     putString(ARG_TEXT_BOTAO, txtBotao)
+                    putByte(ARG_FRAG_ID, numFrag)
                 }
             }
     }

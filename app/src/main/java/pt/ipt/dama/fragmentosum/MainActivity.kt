@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         // instancicar os fragmento
-        f1 = MeuFragmento.newInstance("fragmento um", "botão um")
-        f2 = MeuFragmento.newInstance("Fragmento Dois", "Botão Dois")
-        f3 = MeuFragmento.newInstance("FRAGMENTO TRÊS", "BOTÃO TRÊS")
+        f1 = MeuFragmento.newInstance("fragmento um", "botão um",1)
+        f2 = MeuFragmento.newInstance("Fragmento Dois", "Botão Dois",2)
+        f3 = MeuFragmento.newInstance("FRAGMENTO TRÊS", "BOTÃO TRÊS",3)
 
         // injetar estes três fragmentos na minha interface
         val fragmentTransaction = supportFragmentManager.beginTransaction()
