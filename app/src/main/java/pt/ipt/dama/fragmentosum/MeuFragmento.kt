@@ -33,7 +33,7 @@ private const val ARG_FRAG_ID = "0"
  * create an instance of this fragment.
  */
 class MeuFragmento : Fragment() {
-    // TODO: Rename and change types of parameters
+    // TO DO: Rename and change types of parameters
     /**
      * texto a mostrar na TextView do fragmento
      */
@@ -83,10 +83,10 @@ class MeuFragmento : Fragment() {
             if (numeroFragmento % 2 == 0) {
                 // fragmento é par
                 // vamos usar o SnackBar para mostrar a mensagem
-                Snackbar.make(view, "foi pressionado o $txtBotao", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(view, getString(R.string.txtToast,txtBotao), Snackbar.LENGTH_LONG).show()
             } else {
                 // é ímpar
-                Toast.makeText(this.context, "foi pressionado o $txtBotao", Toast.LENGTH_LONG).show()
+                Toast.makeText(this.context,  getString(R.string.txtToast,txtBotao), Toast.LENGTH_LONG).show()
             }
         }
         return view
@@ -105,7 +105,7 @@ class MeuFragmento : Fragment() {
          * @param numFrag número associado ao fragmento
          * @return uma nova realização do fragmento MeuFragmento.
          */
-        // TODO: Rename and change types and number of parameters
+        // TO DO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(txtLabel: String, txtBotao: String, numFrag: Byte) =
             MeuFragmento().apply {

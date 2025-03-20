@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Fragmentos Um</string>
-
     <string name="txtInicio">Uso de um Fragmento simples</string>
+
+    <string name="txtFrag1">fragmento um</string>
+    <string name="btFrag1">botão um</string>
+    <string name="txtFrag2">Fragmento Dois</string>
+    <string name="btFrag2">Botão Dois</string>
+    <string name="txtFrag3">FRAGMENTO TRÊS</string>
+    <string name="btFrag3">BOTÃO TRÊS</string>
+
+    <string name="txtToast">foi pressionado o \'%s\'</string>
+
 </resources>
