@@ -8,9 +8,9 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var f1: MeuFragmento
-    lateinit var f2: MeuFragmento
-    lateinit var f3: MeuFragmento
+    private lateinit var f1: MeuFragmento
+    private lateinit var f2: MeuFragmento
+    private lateinit var f3: MeuFragmento
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
